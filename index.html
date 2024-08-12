@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário pizzaria</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        input{
+            min-width: 50px;
+        }
+        textarea{
+            padding: 5px 10px;
+        }
+        main > form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+        .form-line{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .form-line > input,
+        .form-line > select,
+        .form-line > textarea{
+            flex-grow: 1;
+            resize: none;
+        }
+        fieldset{
+            width: 90%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .input-group-line{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .input-group-line > * {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="enviar_formulario.php" method="POST">
+            <fieldset>
+                <legend>Informações pessoais</legend>
+                <div class="input-group-line">
+                    <div class="form-line">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-line">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" id="telefone" name="telefone" required>
+                    </div>
+                </div>
+                <div class="form-line">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" name="endereco" id="endereco" required>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Pizza</legend>
+                <div class="input-group-line">
+                    <div class="form-line">
+                        <label for="tipo">Tipo da Pizza:</label>
+                        <select name="tipo" id="tipo" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="calabresa">Calabresa</option>
+                            <option value="marguerita">Marguerita</option>
+                            <option value="frango_c_catupiry">Frango c/ Catupiry</option>
+                        </select>
+                    </div>
+                    <div class="form-line">
+                        <label for="tamanho">Tamanho da Pizza:</label>
+                        <select name="tamanho" id="tamanho" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="broto">Broto</option>
+                            <option value="normal">Normal</option>
+                            <option value="grande">Grande</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-line">
+                    <label for="tamanho">Observações:</label>
+                    <textarea name="observacoes" id="observacoes" rows="5" placeholder="Exemplo: Sem tomate, molho separado, etc."></textarea>
+                </div>
+            </fieldset>
+            <button type="submit">Finalizar pedido!</button>
+        </form>
+    </main>
+</body>
+</html>
